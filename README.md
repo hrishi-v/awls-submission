@@ -1,6 +1,8 @@
 # LossyFormer
 
-![LossyFormer Logo](LossyFormerLogo.png)
+<p align="center">
+  <img src="LossyFormerLogo.png" width="400" alt="Description">
+</p>
 
 This forms a suite of tools developed as part of the Spring 2026 ADLS module. It is aimed at optimising several transformer models for latency and throughput, whilst accepting minor, controlled accuracy drops. It is tested and working for BERT-Base, BERT-Tiny and RoBERTa.
 
