@@ -1,1 +1,3 @@
 .venv
+lossyformer/__pycache__
+mase.egg-info
