@@ -108,13 +108,10 @@ class LossyFormer:
         log_dir = Path("logs")
         log_dir.mkdir(exist_ok=True)
 
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        log_file = (
-            log_dir
-            / f"iteration_history_{model_name}_allowedloss{int(allowed_loss * 100)}_{timestamp}.json"
-        )
-
         safe_name = model_name.replace("/", "_")
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        log_file = log_dir / f"iteration_history_{safe_name}_allowedloss{int(allowed_loss * 100)}_{timestamp}.json"
+
         with open(log_file, "w") as f:
             json.dump(self.iteration_history, f, indent=2)
 
