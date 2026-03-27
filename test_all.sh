@@ -1,9 +1,21 @@
+#!/bin/bash
 uv sync
 source .venv/bin/activate
-# Run unit tests
-pytest
-python lf_tests/lf-testing.py --model bert-tiny # Executes the lossy.fit() method on the IMDB-trained BERT-Tiny model
-python lf_tests/lf-testing.py --model bert-base # Executes the lossy.fit() method on the MNLI-trained BERT-Base model
-python lf_tests/lf-testing.py --model roberta # Executes the lossy.fit() method on the MNLI-trained RoBERTa-Base model
 
-# Comment one of the two above if you only want to see one running!
+# Run unit tests
+echo "Running Unit Tests..."
+pytest
+
+# Run the single-pass LossyFormer pipeline (Targeting a 3% accuracy drop)
+echo "Starting LossyFormer TL;DR Pipeline (3% Target Drop)..."
+
+echo "-> Running BERT-Tiny on IMDB..."
+python lf_tests/lf-testing-light.py --model bert-tiny --target_drop 0.03
+
+echo "-> Running BERT-Base on MNLI..."
+python lf_tests/lf-testing-light.py --model bert-base --target_drop 0.03
+
+echo "-> Running RoBERTa-Base on MNLI..."
+python lf_tests/lf-testing-light.py --model roberta --target_drop 0.03
+
+echo "All tests complete!"
