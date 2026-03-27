@@ -1,3 +1,5 @@
-.venv
-lossyformer/__pycache__
-mase.egg-info
+__pycache__/
+*.pyc
+.venv/
+mase.egg-info/
+logs/

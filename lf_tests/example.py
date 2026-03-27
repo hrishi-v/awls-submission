@@ -7,6 +7,8 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 model_name = "prajjwal1/bert-tiny"
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
+# Take an initialised, but untrained bert-tiny model, and pass that into the LossyFormer.
+
 dataset_kwargs = {
     "dataset_name": "imdb",
     "dataset_config": None,
@@ -16,6 +18,8 @@ dataset_kwargs = {
     "train_batch_size": 32,
     "eval_batch_size": 64,
 }
+
+# Define the kwargs as above, to give the dataset the user wants to execute lossy.fit on, as well as the batch sizes they want to use for both dataloaders. The dataloaders are constructed inside the LossyFormer.
 
 lossy = LossyFormer(
     model_name=model_name,

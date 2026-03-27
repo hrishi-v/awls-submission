@@ -6,13 +6,36 @@ This forms a suite of tools developed as part of the Spring 2026 ADLS module. It
 
 ## Usage
 
-For instructions as to how to use the model, look at `lf_tests/example.py`. This demonstrates how to instantiate the class and call `lossy.fit()` on transformer models.
+For an example of how to use the tool, see`lf_tests/example.py`. This demonstrates how to instantiate the class and call `lossy.fit()` on transformer models. We do this with a BERT-Tiny model, on the IMDB dataset, permitting an accuracy loss of 1.5%. Note that this is primarily provided as a sanity check that the tool works end-to-end.
 
 ```sh
 uv sync
-python lf_tests/usage.py # Executes the lossy.fit() method
+source .venv/bin/activate
+python lf_tests/example.py # Executes the lossy.fit() method
 ```
 
+**Individual tests**
+
+Defined below are the commands to run LossyFormer on BERT-Base and RoBERTa-Base.
+
+```sh
+# Run the sync and source the .venv first!
+python lf_tests/lf-testing.py --model bert-base # Executes the lossy.fit() method on the MNLI-trained BERT-Base model
+```
+
+```sh
+# Run the sync and source the .venv first!
+python lf_tests/lf-testing.py --model roberta # Executes the lossy.fit() method on the MNLI-trained RoBERTa model
+```
+
+Bear in mind, this will take a *long* while, so might be best to see how it works and interrupt it :)
+
+**All Tests**
+
+```sh
+chmod +x test_all.sh
+./test_all.sh
+```
 
 ## Future Goals
 
