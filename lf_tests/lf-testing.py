@@ -24,7 +24,7 @@ args = parser.parse_args()
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {DEVICE}")
 
-BASE_PATH = "/vol/bitbucket/ug22/adls-data/models"
+BASE_PATH = "models"
 
 
 IMDB_DATASET_KWARGS = {
@@ -60,7 +60,7 @@ MODEL_CONFIG = {
     },
     "roberta": {
         "checkpoint_name": "roberta-base",
-        "baseline_checkpoint": f"{BASE_PATH}/roberta-base-glue-mnli-baseline",
+        "baseline_checkpoint": f"{BASE_PATH}/roberta-imdb-baseline",
         "dataset_kwargs": get_mlni_dataset_kwargs("roberta-base"),
     },
     "bert-tiny": {
@@ -95,13 +95,6 @@ if hasattr(state_dict, "state_dict"):
 
 with open(output_csv, mode="w", newline="") as f:
     csv.DictWriter(f, fieldnames=fieldnames).writeheader()
-
-
-# def get_base_model(ee_model):
-#     for attr in ["original_model", "base_model", "model"]:
-#         if hasattr(ee_model, attr):
-#             return getattr(ee_model, attr)
-#     return ee_model
 
 
 for drop in target_drops:
