@@ -56,6 +56,14 @@ To run all the unit tests, run `pytest`.
 - Reflect on the GeLU to ReLU swap, which is expected to offer better latency and throughput, but for custom architectures built on FPGA or ASIC. Omitted due to GPU performance being unaffected.
 
 
+## Project Experiments
+
+As part of this project, we conducted a wide range of experiments on our baseline models. These included evaluating the impact of different activation functions (e.g., replacing GeLU with ReLU) on both throughput and latency, exploring various approximations of Scaled Dot-Product Attention (SDPA), and applying attention head pruning based on different head importance metrics.
+
+We also investigated early exit strategies, experimenting with multiple criteria such as Maximum Probability and Shannon Entropy, along with different methods for selecting optimal exit thresholds (e.g. Grid Seach and Bayesian Optimisation).
+
+A subset of these experiments is available in the `project-experiments/` directory, alongside our final implementation.
+
 **Contributors:**
 
 - Dhyey Trivedi
