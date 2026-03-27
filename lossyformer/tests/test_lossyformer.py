@@ -1,20 +1,14 @@
 import pytest
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from unittest.mock import MagicMock, patch
-from collections.abc import Mapping
 from transformers import (
     BertConfig,
     BertForSequenceClassification,
     RobertaConfig,
     RobertaForSequenceClassification,
-    default_data_collator,
 )
-from torch.utils.data import DataLoader, TensorDataset
 from lossyformer.main import LossyFormer, calibrate
 from lossyformer.utils import get_vram_usage
-from lossyformer.early_exit import BertEarlyExit, RobertaEarlyExit, get_early_exit_model
+from lossyformer.early_exit import BertEarlyExit, RobertaEarlyExit
 
 BERT_CFG = dict(
     hidden_size=64,
