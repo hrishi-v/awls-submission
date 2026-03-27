@@ -39,7 +39,7 @@ IMDB_DATASET_KWARGS = {
 }
 
 
-def get_mlni_dataset_kwargs(checkpoint_name):
+def get_mnli_dataset_kwargs(checkpoint_name):
     return {
         "dataset_name": "glue",
         "dataset_config": "mnli",
@@ -56,12 +56,12 @@ MODEL_CONFIG = {
     "bert-base": {
         "checkpoint_name": "bert-base-uncased",
         "baseline_checkpoint": f"{BASE_PATH}/bert-base-glue-mnli-baseline",
-        "dataset_kwargs": get_mlni_dataset_kwargs("bert-base-uncased"),
+        "dataset_kwargs": get_mnli_dataset_kwargs("bert-base-uncased"),
     },
     "roberta": {
         "checkpoint_name": "roberta-base",
-        "baseline_checkpoint": f"{BASE_PATH}/roberta-imdb-baseline",
-        "dataset_kwargs": get_mlni_dataset_kwargs("roberta-base"),
+        "baseline_checkpoint": f"{BASE_PATH}/roberta-base-glue-mnli-baseline",
+        "dataset_kwargs": get_mnli_dataset_kwargs("roberta-base"),
     },
     "bert-tiny": {
         "checkpoint_name": "prajjwal1/bert-tiny",
