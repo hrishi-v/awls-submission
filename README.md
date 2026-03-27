@@ -18,8 +18,7 @@ python lf_tests/example.py # Executes the lossy.fit() method
 
 **TL:DR Test**
 
-To quickly run all unit tests then execute a single LossyFormer pass at an accuracy drop of 3% on the compatible models, use the following commands.
-
+To quickly run all unit tests then execute a single LossyFormer pass at an accuracy drop of 3% on the compatible models, use the following commands. This is aimed at being primarily demonstrative, so we only use a single finetuning iteration and one pruning step.
 
 ```sh
 chmod +x test_all.sh

@@ -16,8 +16,8 @@ parser.add_argument(
     "--model", type=str, choices=["bert-base", "roberta", "bert-tiny"], required=True
 )
 parser.add_argument("--target_drop", type=float, default=0.03, help="Allowed accuracy drop (e.g., 0.03 for 3%)")
-parser.add_argument("--max_ft_steps", type=int, default=500)
-parser.add_argument("--max_iterations", type=int, default=25)
+parser.add_argument("--max_ft_steps", type=int, default=1)
+parser.add_argument("--max_iterations", type=int, default=1)
 parser.add_argument("--step_keep_ratio", type=float, default=0.90)
 args = parser.parse_args()
 
