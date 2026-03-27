@@ -1,18 +1,17 @@
 # LossyFormer
 
+![LossyFormer Logo](LossyFormerLogo.png)
+
 This forms a suite of tools developed as part of the Spring 2026 ADLS module. It is aimed at optimising several transformer models for latency and throughput, whilst accepting minor, controlled accuracy drops. It is tested and working for BERT-Base, BERT-Tiny and RoBERTa.
 
 ## Usage
 
-For example usage, look at `lf_tests/example.py`. This demonstrates how to instantiate the class and call `lossy.fit()` on transformer models.
+For instructions as to how to use the model, look at `lf_tests/example.py`. This demonstrates how to instantiate the class and call `lossy.fit()` on transformer models.
 
 ```sh
 uv sync
-python lf_tests/usage.py # Executes the 
+python lf_tests/usage.py # Executes the lossy.fit() method
 ```
-
-
-
 
 
 ## Future Goals
